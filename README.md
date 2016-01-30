@@ -1,7 +1,7 @@
 Reaction Filtration [![Build Status](https://travis-ci.org/ramusus/reaction-filtration.png?branch=master)](https://travis-ci.org/ramusus/reaction-filtration)
 ===================
 
-This package lets you do reactive filtration of the products on the main page in Reaction Commerce 
+This package lets you do reactive Filtration of the products on the main page in Reaction Commerce 
 
 Installation
 ------------
@@ -23,11 +23,12 @@ Features
 --------
 
 * Open filters by link in right-side bar (for now only for admins);
-* filtration by title, pageTitle and description;
-* filtration by price using range slider with autocalculated min and max values;
-* filtration by weight using range slider with autocalculated min and max values;
-* filtration by tag with autocomplete;
-* filtration by detail using combination name + value;
-* filtration by visibility (only for admins);
+* Filtration by title, pageTitle and description;
+* Filtration by price using range slider with autocalculated min and max values;
+* Filtration by weight using range slider with autocalculated min and max values;
+* Filtration by tag with autocomplete;
+* Filtration by detail using combination name + value;
+* Filtration by visibility (only for admins);
+* All strings supports i18n; 
 
 You are welcome to submit any issues or ideas [here](https://github.com/ramusus/reaction-filtration/issues/)
