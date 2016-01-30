@@ -1,0 +1,7 @@
+{
+  "name": "reaction-filtration",
+  "dependencies": {
+    "nouislider": "8.2.1",
+    "wnumb": "1.0.2"
+  }
+}
