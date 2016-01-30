@@ -11,7 +11,7 @@ Installation
 Screenshots
 -----------
 
-![Filters](https://s3.amazonaws.com/f.cl.ly/items/0E2g0v3k09222e0C2333/Image%202016-01-30%20at%209.05.43%20PM.png?v=e6b2a768)
+![Filters](https://s3.amazonaws.com/f.cl.ly/items/1R3V3C1y1N1M270q0w1l/Image%202016-01-30%20at%209.22.31%20PM.png?v=05350742)
 
 Features
 --------
