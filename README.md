@@ -8,7 +8,7 @@ Installation
 
     meteor add ramusus:reaction-filtration
 
-Right now Reaction Core doesn't support integration with this package out of the box. It's necessary to do some changes.
+**Important** Right now Reaction Core doesn't support integration with this package out of the box. It's necessary to do some changes.
 I opened 
 [this Pull Request](https://github.com/reactioncommerce/reaction/pull/743) to show how to integrate it with latest 
 development branch of Reaction Core. You can merge it to you local installation or do these additions by hands in 
