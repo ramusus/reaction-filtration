@@ -1,42 +1,41 @@
 <template name="filtrationFilters">
   <div class="panel panel-default">
     <div class="panel-body">
-      {{#if Template.subscriptionsReady}}
-        <div class="form-group">
-          <label for="member-form-name"><span data-i18n="filtration.filters.titleLabel">Title</span></label>
-          <input type="text" class="form-control" tabindex=1 id="query" placeholder="{{i18n "filtration.filters.titlePlaceholder" "Filter by title"}}">
+      {{>productsCount}}
+      <div class="form-group">
+        <label for="member-form-name"><span data-i18n="filtration.filters.titleLabel">Title</span></label>
+        <input type="text" class="form-control" tabindex=1 id="query" placeholder="{{i18n "filtration.filters.titlePlaceholder" "Filter by title"}}">
+      </div>
+      <div class="form-group">
+        <label><span data-i18n="filtration.filters.priceLabel">Price</span></label>
+        <div class="priceSlider" style="margin: 35px 15px 35px 15px;"></div>
+      </div>
+      <div class="form-group">
+        <label><span data-i18n="filtration.filters.weightLabel">Weight</span></label>
+        <div class="weightSlider" style="margin: 35px 15px 35px 15px;"></div>
+      </div>
+      <div class="form-group">
+        <label for="tag"><span data-i18n="filtration.filters.tagLabel">Tag</span></label>
+        <input type="text" class="form-control" tabindex=2 id="tag" placeholder="{{i18n "filtration.filters.tagPlaceholder" "Filter by tag"}}">
+      </div>
+      <div class="form-group">
+        <label><span data-i18n="filtration.filters.detailsLabel">Details</span></label>
+        <div>
+          <input type="text" class="form-control" tabindex=4 id="detail_value"
+                 placeholder="{{i18n "filtration.filters.detailValuePlaceholder" "Filter by detail value"}}" style="width: 48%; float: right;">
+          <input type="text" class="form-control" tabindex=3 id="detail_name"
+                 placeholder="{{i18n "filtration.filters.detailNamePlaceholder" "Filter by detail name"}}" style="width: 48%">
         </div>
+      </div>
+      {{#if hasPermission "admin"}}
         <div class="form-group">
-          <label><span data-i18n="filtration.filters.priceLabel">Price</span></label>
-          <div class="priceSlider" style="margin: 35px 15px 35px 15px;"></div>
+            <label for="tag"><span data-i18n="filtration.filters.visibilityLabel">Visibility</span></label>
+            <select class="form-control" id="visibility">
+                <option value="" data-i18n="filtration.filters.visibilityAny">Any</option>
+                <option value="1" data-i18n="filtration.filters.visibilityVisible">Visible</option>
+                <option value="0" data-i18n="filtration.filters.visibilityNotVisible">Not visible</option>
+            </select>
         </div>
-        <div class="form-group">
-          <label><span data-i18n="filtration.filters.weightLabel">Weight</span></label>
-          <div class="weightSlider" style="margin: 35px 15px 35px 15px;"></div>
-        </div>
-        <div class="form-group">
-          <label for="tag"><span data-i18n="filtration.filters.tagLabel">Tag</span></label>
-          <input type="text" class="form-control" tabindex=2 id="tag" placeholder="{{i18n "filtration.filters.tagPlaceholder" "Filter by tag"}}">
-        </div>
-        <div class="form-group">
-          <label><span data-i18n="filtration.filters.detailsLabel">Details</span></label>
-          <div>
-            <input type="text" class="form-control" tabindex=4 id="detail_value"
-                   placeholder="{{i18n "filtration.filters.detailValuePlaceholder" "Filter by detail value"}}" style="width: 48%; float: right;">
-            <input type="text" class="form-control" tabindex=3 id="detail_name"
-                   placeholder="{{i18n "filtration.filters.detailNamePlaceholder" "Filter by detail name"}}" style="width: 48%">
-          </div>
-        </div>
-        {{#if hasPermission "admin"}}
-          <div class="form-group">
-              <label for="tag"><span data-i18n="filtration.filters.visibilityLabel">Visibility</span></label>
-              <select class="form-control" id="visibility">
-                  <option value="" data-i18n="filtration.filters.visibilityAny">Any</option>
-                  <option value="1" data-i18n="filtration.filters.visibilityVisible">Visible</option>
-                  <option value="0" data-i18n="filtration.filters.visibilityNotVisible">Not visible</option>
-              </select>
-          </div>
-        {{/if}}
       {{/if}}
     </div>
   </div>

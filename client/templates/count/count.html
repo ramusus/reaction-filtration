@@ -1,0 +1,9 @@
+<template name="productsCount">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{#if hasPublishedCount 'Products'}}
+        Found <strong>{{limit}}</strong>/<strong>{{total}}</strong> products.
+      {{/if}}
+    </div>
+  </div>
+</template>
