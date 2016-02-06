@@ -2,7 +2,9 @@
   <div class="panel panel-default">
     <div class="panel-body">
       {{#if hasPublishedCount 'Products'}}
-        Found <strong>{{limit}}</strong>/<strong>{{total}}</strong> products.
+        <span data-i18n="filtration.found">Found</span>
+        <strong>{{limit}}</strong>/<strong>{{total}}</strong>
+        <span data-i18n="filtration.products">products</span>.
       {{/if}}
     </div>
   </div>
