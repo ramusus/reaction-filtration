@@ -23,6 +23,7 @@ Features
 --------
 
 * Open filters by link in right-side bar (for now only for admins);
+* Show how many filtered products on the page / total on the server;
 * Filtration by title, pageTitle and description;
 * Filtration by price using range slider with autocalculated min and max values;
 * Filtration by weight using range slider with autocalculated min and max values;
