@@ -16,6 +16,16 @@ ReactionFiltration.methods.getProductFieldBounds = new ValidatedMethod({
     match: { type: Object, optional: true}
   }).validator(),
   run({ field, match }) {
+    //if(!match) {
+    //  let match = {};
+    //}
+    //const shop = ReactionCore.getCurrentShop();
+    //if (typeof shop !== "object") {
+    //  return this.ready();
+    //}
+    //if (shop) {
+    //  _.extend(match, {shopId: shop._id});
+    //}
     let pipeline = [];
     if(match) {
       pipeline.push({$match: match});
