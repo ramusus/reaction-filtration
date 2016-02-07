@@ -24,9 +24,9 @@ ReactionFiltration.methods.getProductFieldBounds = new ValidatedMethod({
     pipeline.push({$group: {_id: null, max: {$max: `$variants.${field}`}, min: {$min: `$variants.${field}`}}});
 
     try {
-      let bound = ReactionCore.Collections.Products.aggregate(pipeline);
-      delete bound[0]['_id'];
-      return bound[0];
+      let bound = ReactionCore.Collections.Products.aggregate(pipeline)[0];
+      delete bound['_id'];
+      return bound;
     } catch (error) {
       return ReactionCore.Log.error("Failed execute filtration/getProductFieldBound with arguments", field, match, error.message);
     }
