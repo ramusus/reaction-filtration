@@ -1,4 +1,8 @@
-ReactionFiltration = {
+/**
+ * Methods for updating reactive session variables for ProductsGrid template
+ */
+
+_.extend(ReactionFiltration, {
   update: (name, value) => {
     let selector = Session.get('productFilters');
     selector[name] = value;
@@ -14,4 +18,4 @@ ReactionFiltration = {
   reset: () => {
     Session.set('productFilters', {});
   }
-};
+});
