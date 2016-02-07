@@ -20,6 +20,7 @@ Package.onUse(function (api) {
   api.use("mdg:validated-method@1.0.1");
 
   api.addFiles("common/common.js");
+  api.addFiles("common/methods/filtration.js");
 
   api.addFiles("client/bower.json", "client");
   api.addFiles("client/bower/wnumb/wNumb.js", "client");
@@ -34,7 +35,6 @@ Package.onUse(function (api) {
   api.addFiles("client/templates/count/count.html", "client");
   api.addFiles("client/templates/count/count.js", "client");
 
-  api.addFiles("server/methods/filtration.js", "server");
   api.addFiles("server/register.js", "server");
 
   api.export("ReactionFiltration");

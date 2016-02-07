@@ -7,7 +7,7 @@ Template.filtrationFilters.onCreated(function () {
 
 Template.filtrationFilters.onRendered(function () {
 
-  Meteor.call("ReactionFiltration.methods.getProductFieldBounds", {field: 'price'}, (error, result) => {
+  ReactionFiltration.methods.getProductFieldBounds.call({field: 'price'}, (error, result) => {
     let currency = ReactionCore.Locale.shopCurrency;
     let space = currency.format[2] === ' ' ? '&nbsp;' : '';
     let wnumbSettings = currency.format[1] === "v" ? {'postfix': space + currency.symbol} : {'prefix': currency.symbol + space};
@@ -26,7 +26,7 @@ Template.filtrationFilters.onRendered(function () {
     });
   });
 
-  Meteor.call("ReactionFiltration.methods.getProductFieldBounds", {field: 'weight'}, (error, result) => {
+  ReactionFiltration.methods.getProductFieldBounds.call({field: 'weight'}, (error, result) => {
     let weightSlider = $('.weightSlider').get(0);
     noUiSlider.create(weightSlider, {
       start: [result['min'], result['max']],
