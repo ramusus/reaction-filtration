@@ -9,10 +9,10 @@ Installation
     meteor add ramusus:reaction-filtration
 
 **Important** Right now Reaction Core doesn't support integration with this package out of the box. It's necessary to do 
-2 small additions. I opened this 
-[Pull Request](https://github.com/reactioncommerce/reaction/pull/743) to show how to integrate it with latest 
-development branch of Reaction Core. You can merge it to you local installation or do these additions by hands in 
-[2 files only](https://github.com/reactioncommerce/reaction/pull/743/files). 
+slight changes. I opened this [Pull Request](https://github.com/reactioncommerce/reaction/pull/743) 
+to show how to integrate it with latest development 0.12 version of Reaction Core. You can merge it to you local 
+installation. You can check what changes are necessary 
+[here](https://github.com/reactioncommerce/reaction/pull/743/files).
 
 Screenshots
 -----------
@@ -22,12 +22,13 @@ Screenshots
 Features
 --------
 
-* Open filters by link in right-side bar (for now only for admins);
-* Show how many filtered products on the page / total on the server;
-* Filtration by title, pageTitle and description;
+* Open filters by link in right-side bar (for link visible now only for admins);
+* Show how many **filtered products** are visible on the page / total on the server;
+* Working both on index and product tag pages;
+* Filtration by title, pageTitle and description (search mode);
 * Filtration by price using range slider with autocalculated min and max values;
 * Filtration by weight using range slider with autocalculated min and max values;
-* Filtration by tag with autocomplete;
+* Filtration by tag with autocomplete (only on index page);
 * Filtration by detail using combination name + value;
 * Filtration by visibility (only for admins);
 * All strings supports i18n; 
