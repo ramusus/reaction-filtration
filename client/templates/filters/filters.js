@@ -1,18 +1,14 @@
-Template.filtrationFilters.onCreated(function () {
-  let self = this;
-  self.autorun(function () {
-    ReactionFiltration.reset();
-  });
-});
-
 Template.filtrationFilters.onRendered(function () {
+  const instance = Template.instance();
+  const currency = ReactionCore.Locale.shopCurrency;
+  let priceSlider = instance.$('.priceSlider').get(0);
+  let weightSlider = instance.$('.weightSlider').get(0);
 
   ReactionFiltration.methods.getProductFieldBounds.call({field: 'price'}, (error, result) => {
-    let currency = ReactionCore.Locale.shopCurrency;
-    let space = currency.format[2] === ' ' ? '&nbsp;' : '';
-    let wnumbSettings = currency.format[1] === "v" ? {'postfix': space + currency.symbol} : {'prefix': currency.symbol + space};
-    let wnumb = wNumb(wnumbSettings);
-    let priceSlider = $('.priceSlider').get(0);
+    const space = currency.format[2] === ' ' ? '&nbsp;' : '';
+    const wnumbSettings = currency.format[1] === "v" ?
+      {'postfix': space + currency.symbol} : {'prefix': currency.symbol + space};
+    const wnumb = wNumb(wnumbSettings);
     noUiSlider.create(priceSlider, {
       start: [result['min'], result['max']],
       tooltips: [wnumb, wnumb],
@@ -27,7 +23,6 @@ Template.filtrationFilters.onRendered(function () {
   });
 
   ReactionFiltration.methods.getProductFieldBounds.call({field: 'weight'}, (error, result) => {
-    let weightSlider = $('.weightSlider').get(0);
     noUiSlider.create(weightSlider, {
       start: [result['min'], result['max']],
       tooltips: [wNumb({}), wNumb({})],
@@ -41,6 +36,32 @@ Template.filtrationFilters.onRendered(function () {
     })
   });
 
+  this.autorun(function () {
+    // call after every changing url - reset filtration and form
+    ReactionRouter.watchPathChange();
+    ReactionFiltration.reset();
+    instance.$('#query').val('');
+    instance.$('#tag').val('');
+    instance.$('#detail_value').val('');
+    instance.$('#detail_name').val('');
+    instance.$('#visibility').select('');
+    if (priceSlider.noUiSlider) {
+      priceSlider.noUiSlider.set([0, 99999999]);
+    }
+    if (weightSlider.noUiSlider) {
+      weightSlider.noUiSlider.set([0, 99999999]);
+    }
+  });
+
+});
+
+Template.filtrationFilters.helpers({
+  shops() {
+    return ReactionCore.Collections.Shops.find({});
+  },
+  tagNotSelected() {
+    return !ReactionRouter.getParam("slug");
+  }
 });
 
 Template.filtrationFilters.events({
@@ -69,7 +90,7 @@ Template.filtrationFilters.events({
       autoFocus: true,
       source: function (request, response) {
         let datums = [];
-        let slug = getSlug(request.term);
+        const slug = getSlug(request.term);
         ReactionCore.Collections.Tags.find({
           slug: new RegExp(slug, "i")
         }).forEach(function (tag) {
@@ -86,7 +107,7 @@ Template.filtrationFilters.events({
   },
   "keyup #tag": (event) => {
     const name = 'tag';
-    let tag = ReactionCore.Collections.Tags.findOne({name: event.target.value});
+    const tag = ReactionCore.Collections.Tags.findOne({name: event.target.value});
     if (tag) {
       ReactionFiltration.update(name, tag._id);
     } else {

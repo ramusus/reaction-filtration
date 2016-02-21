@@ -1,19 +1,20 @@
 Package.describe({
   summary: "Reactive filtration of products for Reaction Commerce",
   name: "ramusus:reaction-filtration",
-  version: "0.0.3",
+  version: "0.0.4",
   git: "https://github.com/ramusus/reaction-filtration.git"
 });
 
 Package.onUse(function (api) {
-  api.versionsFrom("METEOR@1.2");
+  api.versionsFrom("METEOR@1.2.1");
 
   // meteor base packages
   api.use("blaze-html-templates");
+  api.use("jquery");
 
   // add-on packages
   api.use("underscore");
-  api.use("reactioncommerce:core@0.11.0");
+  api.use("reactioncommerce:core@0.12.0");
   api.use("meteorhacks:aggregate@1.3.0");
   api.use("mquandalle:bower@1.5.2_1");
   api.use("tmeasday:publish-counts@0.7.3");
