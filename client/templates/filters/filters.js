@@ -1,8 +1,8 @@
 Template.filtrationFilters.onRendered(function () {
   const instance = Template.instance();
   const currency = ReactionCore.Locale.shopCurrency;
-  let priceSlider = instance.$('.priceSlider').get(0);
-  let weightSlider = instance.$('.weightSlider').get(0);
+  const priceSlider = instance.$('.priceSlider').get(0);
+  const weightSlider = instance.$('.weightSlider').get(0);
 
   ReactionFiltration.methods.getProductFieldBounds.call({field: 'price'}, (error, result) => {
     const space = currency.format[2] === ' ' ? '&nbsp;' : '';
