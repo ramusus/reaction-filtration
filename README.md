@@ -14,6 +14,10 @@ to show how to integrate it with latest development 0.12 version of Reaction Cor
 installation. You can check what changes are necessary 
 [here](https://github.com/reactioncommerce/reaction/pull/743/files).
 
+To enable link "Show filters" in right-side bar, it's required to remove all shops from database. They will be
+created again by inner logic of Reaction with updated layout with this link. It will appear in the bottom of right-side bar
+on index and product tag pages.
+
 Screenshots
 -----------
 
