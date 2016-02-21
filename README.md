@@ -25,7 +25,7 @@ Features
 * Open filters by link in right-side bar (for link visible now only for admins);
 * Show how many **filtered products** are visible on the page / total on the server;
 * Working both on index and product tag pages;
-* Filtration by title, pageTitle and description (search mode);
+* Filtration by title, pageTitle and description (search functionality);
 * Filtration by price using range slider with autocalculated min and max values;
 * Filtration by weight using range slider with autocalculated min and max values;
 * Filtration by tag with autocomplete (only on index page);
