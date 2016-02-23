@@ -19,6 +19,7 @@ Package.onUse(function (api) {
   api.use("mquandalle:bower@1.5.2_1");
   api.use("tmeasday:publish-counts@0.7.3");
   api.use("mdg:validated-method@1.0.1");
+  api.use("aldeed:simple-schema@1.5.3");
 
   api.addFiles("common/common.js");
   api.addFiles("common/methods/filtration.js");
