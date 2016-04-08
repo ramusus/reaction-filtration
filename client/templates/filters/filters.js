@@ -102,12 +102,12 @@ Template.filtrationFilters.events({
         return response(datums);
       },
       select: (e, ui) => {
-        $(this).val(ui.item.value).trigger("keyup");
+        $(this).val(ui.item.value).trigger("change");
       }
     });
   },
-  "keyup #tag": (event) => {
-    const tag = ReactionCore.Collections.Tags.findOne({name: event.target.value});
+  "change #tag": (event) => {
+    const tag = ReactionCore.Collections.Tags.findOne({name: event.target.value.trim()});
     if (tag) {
       ReactionFiltration.update("tags", [tag._id]);
     } else {
