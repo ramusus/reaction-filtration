@@ -1,7 +1,7 @@
 Package.describe({
   summary: "Reactive filtration of products for Reaction Commerce",
   name: "ramusus:reaction-filtration",
-  version: "0.0.4",
+  version: "0.0.5",
   git: "https://github.com/ramusus/reaction-filtration.git"
 });
 
@@ -32,8 +32,6 @@ Package.onUse(function (api) {
   api.addFiles("client/helpers/filtration.js", "client");
   api.addFiles("client/templates/filters/filters.html", "client");
   api.addFiles("client/templates/filters/filters.js", "client");
-  api.addFiles("client/templates/dashboard/dashboard.html", "client");
-  api.addFiles("client/templates/dashboard/dashboard.js", "client");
   api.addFiles("client/templates/count/count.html", "client");
   api.addFiles("client/templates/count/count.js", "client");
 

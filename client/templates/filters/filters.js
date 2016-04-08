@@ -6,8 +6,9 @@ Template.filtrationFilters.onRendered(function () {
 
   ReactionFiltration.methods.getProductFieldBounds.call({field: "price"}, (error, result) => {
     const space = currency.format[2] === " " ? "&nbsp;" : "";
-    const wnumbSettings = currency.format[1] === "v" ?
+    let wnumbSettings = currency.format[1] === "v" ?
       {postfix: space + currency.symbol} : {prefix: currency.symbol + space};
+    wnumbSettings.decimals = 0;
     const wnumb = wNumb(wnumbSettings);
     noUiSlider.create(priceSlider, {
       start: [result.min, result.max],
@@ -23,9 +24,10 @@ Template.filtrationFilters.onRendered(function () {
   });
 
   ReactionFiltration.methods.getProductFieldBounds.call({field: "weight"}, (error, result) => {
+    const wnumb = wNumb({ decimals: 0 });
     noUiSlider.create(weightSlider, {
       start: [result.min, result.max],
-      tooltips: [wNumb({}), wNumb({})],
+      tooltips: [wnumb, wnumb],
       connect: true,
       step: 1,
       margin: 1,
@@ -33,7 +35,7 @@ Template.filtrationFilters.onRendered(function () {
     });
     weightSlider.noUiSlider.on("change", (values) => {
       ReactionFiltration.update("weight", {min: 1 * values[0], max: 1 * values[1]});
-    })
+    });
   });
 
   this.autorun(function () {
@@ -52,7 +54,6 @@ Template.filtrationFilters.onRendered(function () {
       weightSlider.noUiSlider.set([0, 99999999]);
     }
   });
-
 });
 
 Template.filtrationFilters.helpers({
@@ -68,7 +69,7 @@ Template.filtrationFilters.events({
   "keyup #query": _.throttle((event) => {
     const value = event.target.value;
     const name = event.target.id;
-    if (value != "") {
+    if (value !== "") {
       ReactionFiltration.update(name, value);
     } else {
       ReactionFiltration.remove(name);
@@ -78,7 +79,7 @@ Template.filtrationFilters.events({
     const name = "details";
     const key = $("#detail_name").val();
     const value = $("#detail_value").val();
-    if (key != "" && value != "") {
+    if (key !== "" && value !== "") {
       ReactionFiltration.update(name, {key: key, value: value});
     } else {
       ReactionFiltration.remove(name);
@@ -100,24 +101,23 @@ Template.filtrationFilters.events({
         });
         return response(datums);
       },
-      select: function (event, ui) {
+      select: (e, ui) => {
         $(this).val(ui.item.value).trigger("keyup");
       }
     });
   },
   "keyup #tag": (event) => {
-    const name = "tag";
     const tag = ReactionCore.Collections.Tags.findOne({name: event.target.value});
     if (tag) {
-      ReactionFiltration.update(name, tag._id);
+      ReactionFiltration.update("tags", [tag._id]);
     } else {
-      ReactionFiltration.remove(name);
+      ReactionFiltration.remove("tags");
     }
   },
   "change #visibility": (event) => {
     const value = event.target.value;
     const name = event.target.id;
-    if (value != "") {
+    if (value !== "") {
       ReactionFiltration.update(name, !!(1 * value));
     } else {
       ReactionFiltration.remove(name);

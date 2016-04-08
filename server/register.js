@@ -1,20 +1,27 @@
-/*
- * register filtration components as reaction packages
- */
-
 ReactionCore.registerPackage({
   label: "Filtration",
   name: "filtration",
+  icon: "fa fa-filter",
   autoEnable: true,
-  settings: {
-    url: ""
-  },
+  settings: {},
   registry: [{
     provides: "dashboard",
     label: "Filtration",
     description: "Filtration for products in Reaction Commerce",
     icon: "fa fa-filter",
     cycle: 3,
-    container: "dashboard"
+    container: "core"
+  }, {
+    provides: "settings",
+    template: "filtrationFilters",
+    label: "Filters",
+    icon: "fa fa-filter",
+    container: "tag"
+  }, {
+    provides: "settings",
+    template: "filtrationFilters",
+    label: "Filters",
+    icon: "fa fa-filter",
+    container: "index"
   }]
 });
